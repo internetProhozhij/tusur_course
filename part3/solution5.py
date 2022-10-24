@@ -18,22 +18,34 @@ def solution():
     height = 11
     width = height * 3
 
-    flag = True
-    for line_index in range(height - 6):
-        if line_index == 0:
-            print("<>" + "=" * (width - 4) + "<>")
-        elif line_index == height - 7:
-            print("||".ljust(width // 2, "=") + "||".rjust(width // 2 + 1, "="))
-        else:
-            if line_index % 2 != 0:
-                if flag:
-                    print("||" + "<+" * ((width - 4) // 2) + "<||")
-                    flag = False
-                else:
-                    print("||" + ">+" * ((width - 4) // 2) + ">||")
-                    flag = True
-            else:
-                print("||" + "@|" * ((width - 4) // 3) + "||")
+    tree_segment = int(height * 0.3)
+
+    print("<>" + "=" * (width - 4) + "<>")
+
+    for line_index in range(1, tree_segment + 1):
+        print(
+            "||" + 
+            ("/" + "#" * (line_index - 1)).rjust(width // 2 - 2, "-") +
+            "#" +
+            ("#" * (line_index - 1) + "\\").ljust(width // 2 - 2, "-") +
+            "||"
+        )
+
+    print("||" + "|||".center(width - 4, "-") + "||")
+
+    for line_index in range(1, tree_segment + 1):
+        print(
+            "||" +
+            ("/" + "#" * (line_index + 2)).rjust(width // 2 - 2, "-") +
+            "#" +
+            ("#" * (line_index + 2) + "\\").ljust(width // 2 - 2, "-") +
+            "||"
+        )
+
+    for line_index in range(2):
+        print("||" + "|||".center(width - 4, "-") + "||")
+
+    print("<>" + "=" * (width - 4) + "<>")
 
 
 if __name__ == "__main__":
