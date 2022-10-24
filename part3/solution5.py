@@ -20,7 +20,7 @@ def solution():
 
     tree_segment = int(height * 0.3)
 
-    print("<>" + "=" * (width - 4) + "<>")
+    print("<>" + "TUSUR".center(width - 4, "=") + "<>")
 
     for line_index in range(1, tree_segment + 1):
         print(
@@ -45,7 +45,7 @@ def solution():
     for line_index in range(2):
         print("||" + "|||".center(width - 4, "-") + "||")
 
-    print("<>" + "=" * (width - 4) + "<>")
+    print("<>" + "TUSUR".center(width - 4, "=") + "<>")
 
 
 if __name__ == "__main__":
