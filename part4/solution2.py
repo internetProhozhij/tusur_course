@@ -19,10 +19,7 @@
 from random import randint
 
 
-def solution(devisable: float, devider: float) -> list:
-    if devider == 0:
-        raise ValueError("Дление на 0 (ноль)")
-        
+def solution(devisable: float, devider: float) -> list:       
     base = devisable // devider
     extra = devisable % devider
     
@@ -30,11 +27,8 @@ def solution(devisable: float, devider: float) -> list:
 
 
 if __name__ == "__main__":
-    x, y = (randint(0, 100) for _ in range(2))
+    x, y = (randint(1, 100) for _ in range(2))
     print(f"{x=}\n{y=}")
 
-    try:
-        answer = solution(x, y)
-        print(f"целая часть = {answer[0]}\nостаток = {answer[1]}")
-    except Exception as exp:
-        print(exp)
+    answer = solution(x, y)
+    print(f"целая часть = {answer[0]}\nостаток = {answer[1]}")
