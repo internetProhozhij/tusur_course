@@ -47,9 +47,7 @@
 """
 
 
-def solution() -> None:
-    thickness = 5
-    c = 'H'
+def solution(thickness: int, c: str) -> None:
 
     #Top Cone
     for i in range(thickness):
@@ -84,5 +82,8 @@ def solution() -> None:
 
 
 if __name__ == "__main__":
-    solution()
+    thickness = 5
+    c = 'H'
+    
+    solution(thickness, c)
     

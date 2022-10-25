@@ -16,10 +16,12 @@
 """
 
 
-def solution() -> None:
-    text = "hello, world"
-    print(text.title())
+def solution(text: str) -> str:
+    return text.title()
 
 
 if __name__ == "__main__":
-    solution()
+    text = "hello world"
+    title = solution(text)
+
+    print(title)

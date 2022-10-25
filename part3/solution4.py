@@ -16,10 +16,12 @@
 """
 
 
-def solution():
-    amount = 100500.157
-    print(f"{amount:,.2f}")
+def solution(amount: float) -> str:
+    return f"{amount:,.2f}"
 
 
 if __name__ == "__main__":
-    solution()
+    amount = 100500.157
+    answer = solution(amount)
+
+    print(answer)

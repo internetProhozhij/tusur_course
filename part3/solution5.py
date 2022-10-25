@@ -16,8 +16,7 @@
 """
 
 
-def solution():
-    height = 15
+def solution(height: int) -> None:
     width = height * 3
 
     top = int(height * 0.25)
@@ -58,4 +57,4 @@ def solution():
 
 
 if __name__ == "__main__":
-    solution()
+    solution(15)

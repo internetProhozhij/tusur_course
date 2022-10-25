@@ -15,14 +15,14 @@
 """
 
 
-def solution() -> None:
-    name = "Ibrahim"
-    surname = "Petrov"
-
+def solution(name: str, surname: str) -> None:
     print(
         f"Hello, {name} {surname}! You just delved into Python. Great Start!"
     )
 
 
 if __name__ == "__main__":
-    solution()
+    name = "Ibrahim"
+    surname = "Petrov"
+
+    solution(name, surname)
