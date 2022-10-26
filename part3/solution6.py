@@ -30,6 +30,6 @@ def solution(number) -> int:
 
 
 if __name__ == "__main__":
-    number = 0
+    number = 999
     answer = solution(number)
     print(answer)
