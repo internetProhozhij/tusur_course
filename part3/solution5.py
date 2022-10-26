@@ -13,48 +13,40 @@
 Задание: 
     написать программу, которая будет составлять макет коврика для 
     его дальнейшего производства.
+
+---------.|.---------
+------.|..|..|.------
+---.|..|..|..|..|.---
+-------WELCOME-------
+---.|..|..|..|..|.---
+------.|..|..|.------
+---------.|.---------
 """
 
 
 def solution(height: int) -> None:
     width = height * 3
+    
+    marker = ".|."
+    segment = height // 2
 
-    top = int(height * 0.25)
-    bottom = int(height * 0.45)
+    line = ""
+    for line_index in range(0, segment):
+        line += marker * line_index
+        line += marker
+        line += marker * line_index
+        print(line.center(width, "-"))
+        line = ""
 
-    print("<>" + "=" * (width - 4) + "<>")
+    print("WELCOME".center(width, "-"))
 
-    for line_index in range(1, top + 1):
-        line  = "||"
-        line += ("/" + "#" * (line_index - 1)).rjust(width // 2 - 2, "-")
-        
-        if width % 2 == 1:
-            line += "#"
-        
-        line += ("#" * (line_index - 1) + "\\").ljust(width // 2 - 2, "-")
-        line += "||"
-
-        print(line)
-
-    print("||" + "|||".center(width - 4, "-") + "||")
-
-    for line_index in range(1, bottom + 1):
-        line  = "||"
-        line += ("/" + "#" * (line_index + 2)).rjust(width // 2 - 2, "-")
-        
-        if width % 2 == 1:
-            line += "#"
-        
-        line += ("#" * (line_index + 2) + "\\").ljust(width // 2 - 2, "-")
-        line += "||"
-
-        print(line)
-
-    for line_index in range(2):
-        print("||" + "|||".center(width - 4, "-") + "||")
-   
-    print("<>" + "=" * (width - 4) + "<>")
+    for line_index in range(segment, 0, -1):
+        line += marker * (line_index - 1)
+        line += marker
+        line += marker * (line_index - 1)
+        print(line.center(width, "-"))
+        line = ""
 
 
 if __name__ == "__main__":
-    solution(15)
+    solution(11)
