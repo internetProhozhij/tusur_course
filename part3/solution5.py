@@ -28,25 +28,20 @@ def solution(height: int) -> None:
     width = height * 3
     
     marker = ".|."
-    segment = height // 2
 
     line = ""
-    for line_index in range(0, segment):
-        line += marker * line_index
-        line += marker
+    for line_index in range(1, height, 2):
         line += marker * line_index
         print(line.center(width, "-"))
         line = ""
 
     print("WELCOME".center(width, "-"))
 
-    for line_index in range(segment, 0, -1):
-        line += marker * (line_index - 1)
-        line += marker
-        line += marker * (line_index - 1)
+    for line_index in range(height, 1, -2):
+        line += marker * (line_index - 2)
         print(line.center(width, "-"))
         line = ""
 
 
 if __name__ == "__main__":
-    solution(11)
+    solution(13)
