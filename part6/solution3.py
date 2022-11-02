@@ -19,8 +19,7 @@
 
 
 def solution(numbers: tuple) -> list:
-    numbers_list = list(numbers)
-    result = sorted(numbers_list, key=lambda number: abs(number))
+    result = sorted(numbers, key=lambda number: abs(number))
     return result
 
 
