@@ -13,9 +13,7 @@
 
 
 def solution(rates: dict[str, float]) -> str:
-    rates_items = list(rates.items())
-
-    target = min(rates_items, key=lambda pair: pair[1])
+    target = min(rates.items(), key=lambda pair: pair[1])
 
     return f"{target[0]} -> {target[1]}"
     

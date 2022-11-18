@@ -32,7 +32,7 @@ def solution(dates: list[str], rates: list[float]) -> dict[str, float]:
             f" (были переданы {dates=}   {rates=}))"
         )
 
-    return dict(list(zip(dates, rates)))
+    return dict(zip(dates, rates))
 
 
 if __name__ == "__main__":

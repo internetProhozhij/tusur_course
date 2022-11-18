@@ -15,10 +15,7 @@
 
 
 def solution(object: dict[str, str]) -> dict[str, str]:
-    keys = list(object.keys())
-    values = list(object.values())
-
-    return dict(list(zip(values, keys)))
+    return dict(zip(object.values(), object.keys()))
 
 
 if __name__ == "__main__":

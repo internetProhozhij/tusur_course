@@ -58,12 +58,12 @@ def rotate(matrix: list[list]) -> list[list]:
     """
     lines = len(matrix)
     rows = len(matrix[0])
-    t_matrix = [
+    rotated_matrix = [
         [matrix[j][i] for j in range(rows-1, -1, -1)]
         for i in range(lines)
     ]
     
-    return t_matrix
+    return rotated_matrix
 
 
 def solution(game_result: list[str], playes: list=["O", "X"]) -> str:
@@ -105,10 +105,13 @@ def solution(game_result: list[str], playes: list=["O", "X"]) -> str:
     Если повернуть матрицу, то для прохода по столбцам и по побочной диагонали можно
     использовать операции прохода по строкам и главной даигонали основной матрицы.
     """
-    origin_matrix = [list(line) for line in game_result]
-    rotated_matrix= rotate(origin_matrix)
+    matrix_lines = len(game_result)
+    if any(len(line) != matrix_lines for line in game_result):
+        raise IndexError("Игровое поле должно быть представлено квадратной матрицей")
 
-    matrices = [origin_matrix, rotated_matrix]
+    rotated_matrix= rotate(game_result)
+
+    matrices = [game_result, rotated_matrix]
     
     for matrix in matrices:
         # Проход по строкам
@@ -117,9 +120,12 @@ def solution(game_result: list[str], playes: list=["O", "X"]) -> str:
                 return line[0]
 
         # Получение элементов главной диагонали
-        buffer = [matrix[i][i] for i in range(len(matrix))]
-        if all(marker == buffer[0] for marker in line) and buffer[0] in playes:
-            return buffer[0]
+        main_diagonal = [matrix[i][i] for i in range(len(matrix))]
+        if (
+            all(marker == main_diagonal[0] for marker in main_diagonal)
+            and main_diagonal[0] in playes
+        ):
+            return main_diagonal[0]
 
     return "D"
 
@@ -128,7 +134,7 @@ if __name__ == "__main__":
     data = [
         "OOX",
         "XXO",
-        "OXX"
+        "XX."
     ]
 
     winner = solution(data)
